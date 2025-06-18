@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; }
+    .calc { background: #333; padding: 20px; border-radius: 10px; }
+    input[type="text"] { width: 100%; font-size: 2rem; text-align: right; padding: 10px; }
+    .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+    button { padding: 20px; font-size: 1.2rem; border: none; border-radius: 5px; background: #555; color: #fff; cursor: pointer; }
+    button:hover { background: #777; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">÷</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">×</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">−</button>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+
+      <button onclick="clearDisplay()" style="grid-column: span 4; background: #aa3333;">C</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+    function press(val) { display.value += val; }
+    function calculate() { display.value = eval(display.value); }
+    function clearDisplay() { display.value = ''; }
+  </script>
+</body>
+</html
